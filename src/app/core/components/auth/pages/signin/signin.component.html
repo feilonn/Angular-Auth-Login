@@ -1,6 +1,6 @@
 <div class="container">
   <img src="/assets/logo.png" alt="Logo Pagina de Login">
-  <form action="">
+  <form action="" [formGroup]="formAuth" (ngSubmit)="submitForm()">
     <label>
       <svg
       width="20"
@@ -14,7 +14,7 @@
         fill="#4A4A4A"
       />
     </svg>
-      <input type="text" placeholder="Digite seu email..." required>
+      <input type="email" placeholder="Digite seu email..." formControlName="email" required>
     </label>
 
     <label>
@@ -30,10 +30,10 @@
           fill="#4A4A4A"
         />
       </svg>
-      <input type="password" placeholder="Digite sua senha..." required>
+      <input type="password" placeholder="Digite sua senha..." formControlName="password" required>
     </label>
 
-    <button class="btn-vermelho">Login</button>
+    <button class="btn-vermelho" [disabled]="formAuth.invalid">Login</button>
   </form>
   <span class="msg-error">Usuário ou senha incorretos</span>
 </div>
